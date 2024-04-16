@@ -36,6 +36,7 @@ class AccountProvider extends ChangeNotifier {
     return _session != null;
   }
 
+  //TODO Fehlermeldung hinzufügen
   Future<void> register(String email, String password, String? name) async {
     try {
       final result = await ApiClient.account.create(
@@ -49,6 +50,7 @@ class AccountProvider extends ChangeNotifier {
     }
   }
 
+  //TODO FIX wenn session schon da das anmelde screen kommt
   Future<void> login(String email, String password) async {
     try {
       final result = await ApiClient.account
