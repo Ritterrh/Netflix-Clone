@@ -26,7 +26,7 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'VisionTV',
+        title: 'EmscherHautNah',
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.black,
           primarySwatch: Colors.blue,
