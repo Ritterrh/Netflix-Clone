@@ -52,6 +52,8 @@ class AccountProvider extends ChangeNotifier {
 
   //TODO FIX wenn session schon da das anmelde screen kommt
   Future<void> login(String email, String password) async {
+    isSessionActive();
+    print(isSessionActive());
     try {
       final result = await ApiClient.account
           .createEmailPasswordSession(email: email, password: password);
@@ -63,5 +65,13 @@ class AccountProvider extends ChangeNotifier {
     } catch (e) {
       _session = null;
     }
+  }
+
+  Future isSessionActive() async {
+    final account = ApiClient.account;
+    final sessions = await account.listSessions();
+
+    // Überprüfen, ob eine Sitzung aktiv ist
+    return sessions;
   }
 }
